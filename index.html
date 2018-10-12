@@ -33,7 +33,7 @@
                   <div class="modal-content">
                     <div class="modal-body">
                             <input type="file" v-on:change="getImage($event)">
-                            <button class="bubbly-button my-2 my-sm-0 mr-2" @click="uploadImage">Upload</button>
+                            <button class="bubbly-button my-2 my-sm-0 mr-2" @click="uploadImage" data-dismiss="modal">Upload</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -92,6 +92,7 @@
 
                         axios.post('http://localhost:3000/upload',formdata)
                         .then(()=>{
+                            location.reload()
                             console.log('upload berhasil')
                         })
                         .catch(()=>{
