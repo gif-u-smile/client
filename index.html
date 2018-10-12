@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./style.css">
+
         <!-- REQUIRE VUE AND AXIOS -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
@@ -17,11 +18,18 @@
         <div id="app">
             <nav-bar></nav-bar>
             <main-content></main-content>
-
-            <h3>Test Tombol Upload</h3>
-
-            <input type="file" v-on:change="getImage($event)">
-            <button class="bubbly-button my-2 my-sm-0 mr-2" @click="uploadImage">Upload</button>
+            <gif-modal></gif-modal>
+            <upload-modal></upload-modal>
+            <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="demoModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                            <input type="file" v-on:change="getImage($event)">
+                            <button class="bubbly-button my-2 my-sm-0 mr-2" @click="uploadImage">Upload</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </div>
 
 
@@ -55,6 +63,8 @@
         <!-- VUE COMPONENT ROUTES -->
         <script src='/components/navbar/navbar.js'></script>
         <script src='/components/main-content/main-content.js'></script>
+        <script src='/components/gif-modal/gif-modal.js'></script>
+
 
         <script>
             var app = new Vue({
