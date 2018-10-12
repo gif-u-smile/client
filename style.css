@@ -1,0 +1,230 @@
+.navbar {
+    background-color: rgb(43, 228, 152) !important;
+}
+.image-wiggle {
+    width:30; 
+    height:40;
+    transition: transform .2s;
+}
+
+.image-wiggle:hover {
+    animation: shake 0.5s; 
+    animation-iteration-count: infinite; 
+}
+
+body {
+    font-size: 16px;
+    text-align: center;
+    background: rgb(37, 158, 73);
+    font-family: 'Luminari' !important;
+}
+
+.bubbly-button {
+    display: inline-block;
+    font-size: 1em;
+    padding: 1em 2em;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(182, 32, 174);
+    color: #fff;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
+.bubbly-button:hover {
+    transition: background 0.4s ease;
+    background: rgb(223, 16, 205);
+}
+
+.bubbly-button:focus {
+    outline: 0;
+    
+}
+.bubbly-button:before, .bubbly-button:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 140%;
+    height: 100%;
+    left: -20%;
+    transition: all ease-in-out 0.3.7s;
+    background-repeat: no-repeat;
+}
+.bubbly-button:before {
+    display: none;
+    top: -75%;
+    background-image: radial-gradient(circle, rgb(33, 150, 35) 20%, transparent 20%), radial-gradient(circle, transparent 20%, rgb(33, 150, 35) 20%, transparent 30%), radial-gradient(circle, rgb(237, 37, 227) 20%, transparent 20%), radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgb(33, 150, 35) 15%, transparent 20%), radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%), radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%), radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%), radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.bubbly-button:after {
+    display: none;
+    bottom: -75%;
+    background-image: radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%), radial-gradient(circle, rgb(237, 37, 227) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgb(173, 27, 166) 15%, transparent 20%), radial-gradient(circle, rgb(33, 150, 35) 20%, transparent 20%), radial-gradient(circle, rgb(237, 37, 227) 20%, transparent 20%), radial-gradient(circle, rgb(173, 27, 166) 20%, transparent 20%), radial-gradient(circle, rgb(33, 150, 35) 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.bubbly-button:active {
+    border-radius: 14px;
+    transform: scale(0.9);
+    background-color: #bb1065;
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+.bubbly-button.animate:before {
+    display: block;
+    animation: topBubbles ease-in-out 0.55s forwards;
+}
+.bubbly-button.animate:after {
+    display: block;
+    animation: bottomBubbles ease-in-out 0.55s forwards;
+}
+@keyframes topBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+   }
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+   }
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+   }
+}
+@keyframes bottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+   }
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+   }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+   }
+}
+
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg) scale(1); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg) scale(1.2); }
+    20% { transform: translate(-3px, 0px) rotate(1deg) scale(1.4); }
+    30% { transform: translate(3px, 2px) rotate(0deg) scale(1.6); }
+    40% { transform: translate(1px, -1px) rotate(1deg) scale(1.8); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg) scale(2); }
+    60% { transform: translate(-3px, 1px) rotate(0deg) scale(2.2); }
+    70% { transform: translate(3px, 1px) rotate(-1deg) scale(2.4); }
+    80% { transform: translate(-1px, -1px) rotate(1deg) scale(2.6); }
+    90% { transform: translate(1px, 2px) rotate(0deg) scale(2.8); }
+    100% { transform: translate(1px, -2px) rotate(-1deg) scale(3); }
+}
+
+
+
+
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+ html, body {
+	 text-align: center;
+	 height: 100%;
+}
+ /* body {
+	 background-color: #f9faff;
+	 background-image: url(https://i.imgur.com/LlVxfFq.jpg);
+	 background-size: cover;
+	 background-repeat: no-repeat;
+	 background-position: center center;
+} */
+ .wrapper {
+	 display: flex;
+	 width: 100%;
+	 height: 100%;
+	 align-items: center;
+}
+ *, div, span {
+	 box-sizing: border-box;
+}
+ .social {
+	 display: flex;
+	 align-items: center;
+	 position: relative;
+	 width: 300px;
+	 height: 70px;
+	 font-size: 18px;
+	 font-weight: 700;
+	 box-shadow: inset 0 0 0 2px #dbe3ea;
+	 border-radius: 50px;
+	 color: #9aa9b5;
+	 background: #fff;
+	 overflow: hidden;
+	 margin: auto;
+	 transition: box-shadow 0.2s ease-out;
+}
+ .social span, .social div {
+	 margin: auto;
+}
+ .social .social-links {
+	 display: flex;
+	 align-items: center;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 background: rgba(62, 130, 251, 0);
+	 width: 100%;
+	 height: 100%;
+	 padding: 0 30px;
+	 transition: all 0.25s ease;
+}
+ .social .social-links a {
+	 margin: auto;
+	 background: #fff;
+	 color: #3e82fb;
+	 width: 40px;
+	 height: 40px;
+	 border-radius: 20px;
+	 line-height: 40px;
+	 font-size: 15px;
+	 transform: translate3d(0, 60px, 0);
+	 transition: all 0.2s;
+}
+ .social .social-links a:hover {
+	 background: #89b3fd;
+	 color: #fff;
+}
+ .social:hover {
+	 box-shadow: inset 0 0 0 2px #dbe3ea, 0 1rem 20px rgba(62, 130, 251, .2);
+}
+ .social:hover .social-links {
+	 background: rgba(62, 130, 251, 1);
+}
+ .social:hover .social-links > a {
+	 animation: elastic 0.5s ease-out forwards 0s;
+}
+ .social:hover .social-links > a:nth-child(2) {
+	 animation-delay: 0.05s;
+}
+ .social:hover .social-links > a:nth-child(3) {
+	 animation-delay: 0.1s;
+}
+ .social:hover .social-links > a:nth-child(4) {
+	 animation-delay: 0.15s;
+}
+ .social:hover .social-links > a:nth-child(5) {
+	 animation-delay: 0.2s;
+}
+ @keyframes elastic {
+	 0% {
+		 transform: translate3d(0, 60px, 0);
+	}
+	 40% {
+		 transform: translate3d(0, -5px, 0);
+	}
+	 70% {
+		 transform: translate3d(0, 5px, 0);
+	}
+	 100% {
+		 transform: translate3d(0, 0, 0);
+	}
+}
+ 
