@@ -15,60 +15,13 @@
     </head>
     <body>
         <div id="app">
-            {{message}}
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-light shadow-sm ">
-                    <a class="navbar-brand ml-auto" href="#">
+            <nav-bar></nav-bar>
+            <main-content></main-content>
 
-                        Gif
-                        <img class="image-wiggle" src="./images/511.png" width="30" height="40" alt="">
-                        Smile
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <h3>Test Tombol Upload</h3>
 
-                        <ul class="mr-auto">
-
-                        </ul>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-5" type="search" placeholder="Search" aria-label="Search">
-                                <button class="bubbly-button my-2 my-sm-0 mr-2" >Search</button>
-                            </form>
-                            <button class="bubbly-button my-2 my-sm-0 mr-5 ml-6">Refresh</button>
-                        
-                    </div>  
-                </nav>
-            </header>
-
-
-            <div class="wrapper">
-                <div class="social">
-                    <span>Share your profile</span>
-                    <div class="social-links">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    </div>
-                </div>   
-            </div>
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        One of three columns
-                    </div>
-                    <div class="col-sm">
-                        One of three columns
-                    </div>
-                    <div class="col-sm">
-                        One of three columns
-                    </div>
-                </div>
-            </div>
+            <input type="file" v-on:change="getImage($event)">
+            <button class="bubbly-button my-2 my-sm-0 mr-2" @click="uploadImage">Upload</button>
         </div>
 
 
@@ -98,11 +51,37 @@
             }
 
         </script>
+
+        <!-- VUE COMPONENT ROUTES -->
+        <script src='/components/navbar/navbar.js'></script>
+        <script src='/components/main-content/main-content.js'></script>
+
         <script>
             var app = new Vue({
                 el: '#app',
                 data: {
-                message: 'Hello Vue!'
+                message: 'Hello Vue!',
+                image : '',
+                },
+                created: function () {
+                    
+                },
+                methods: {
+                    getImage(link){
+                        this.image = link.target.files[0]
+                    },
+                    uploadImage: function (){
+                        let formdata = new FormData()
+                        formdata.append('image',this.image)
+
+                        axios.post('http://localhost:3000/upload',formdata)
+                        .then(()=>{
+                            console.log('upload berhasil')
+                        })
+                        .catch(()=>{
+                            console.log('upload tidak berhasil')
+                        })
+                    }
                 }
             })
         </script>
