@@ -4,62 +4,69 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        
+        <title>GIF-You-Smile</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./style.css">
+        <!-- REQUIRE VUE AND AXIOS -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
     </head>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light shadow-sm ">
-                <a class="navbar-brand ml-auto" href="#">
+        <div id="app">
+            {{message}}
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light shadow-sm ">
+                    <a class="navbar-brand ml-auto" href="#">
 
-                    Gif
-                    <img class="image-wiggle" src="./images/511.png" width="30" height="40" alt="">
-                    Smile
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    
-                    <ul class="mr-auto">
+                        Gif
+                        <img class="image-wiggle" src="./images/511.png" width="30" height="40" alt="">
+                        Smile
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-5" type="search" placeholder="Search" aria-label="Search">
-                            <button class="bubbly-button my-2 my-sm-0 mr-2" >Search</button>
-                        </form>
-                        <button class="bubbly-button my-2 my-sm-0 mr-5 ml-6">Refresh</button>
-                    
-                </div>  
-            </nav>
-        </header>
+                        <ul class="mr-auto">
 
-
-        <div class="wrapper">
-            <div class="social">
-                <span>Share your profile</span>
-                <div class="social-links">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                </div>
-            </div>   
-        </div>
+                        </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-5" type="search" placeholder="Search" aria-label="Search">
+                                <button class="bubbly-button my-2 my-sm-0 mr-2" >Search</button>
+                            </form>
+                            <button class="bubbly-button my-2 my-sm-0 mr-5 ml-6">Refresh</button>
+                        
+                    </div>  
+                </nav>
+            </header>
 
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="col-sm">
-                    One of three columns
+            <div class="wrapper">
+                <div class="social">
+                    <span>Share your profile</span>
+                    <div class="social-links">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>   
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        One of three columns
+                    </div>
+                    <div class="col-sm">
+                        One of three columns
+                    </div>
+                    <div class="col-sm">
+                        One of three columns
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,6 +97,14 @@
                 bubblyButtons[i].addEventListener('click', animateButton, false);
             }
 
+        </script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                message: 'Hello Vue!'
+                }
+            })
         </script>
     </body>
 </html>
